@@ -46,13 +46,15 @@ kubectl get pod voltdb -n volt-training
 kubectl logs voltdb -n volt-training
 
 
+
+
 kubectl delete pod voltdb -n volt-training
 
 kubectl run voltdb \
   --image=voltactivedata/volt-developer-edition:14.1.0_voltdb \
   --port=21212 \
   -n volt-training \
-  -- voltdb start --ignore=thp
+  -- voltdb start --ignore=thp --dir=/var/voltdb
 
 
 kubectl logs voltdb -n volt-training -f
