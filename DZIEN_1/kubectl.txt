@@ -84,7 +84,10 @@ kubectl get nodes
 
 kubectl get pods -A | grep -i volt
 
+test klastra
+kubectl create deployment test-nginx --image=nginx
 
+kubectl get pods
 
 
 
