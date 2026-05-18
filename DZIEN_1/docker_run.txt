@@ -10,7 +10,9 @@
 
 7. docker compose config --services
 8. docker compose up -d
-9. 
+
+pokazanie logw VoltDB
+9. docker compose logs voltdb --tail=80
 
 
 
