@@ -64,3 +64,16 @@ I ponownie:
 
 minikube start --driver=docker
 
+PRZESTRZENIE NAZW
+NAMESPECES
+
+kubectl get namespaces
+
+UTWORZENIE NAMESPACE SZKOLENIOWEGO
+kubectl create namespace voltdb-lab
+
+
+
+
+
+
