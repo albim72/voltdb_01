@@ -82,4 +82,11 @@ serviceSpec:
   clientPort: 22222
   adminPort: 33333
 EOF
+
+
+helm install volt voltdb/voltdb \
+  -n volt-training \
+  --server-side=false \
+  -f values.yaml \
+  --set-file cluster.config.licenseXMLFile=$HOME/license.xml
     
