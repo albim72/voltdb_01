@@ -21,4 +21,5 @@ logi dla promstheus i grafana
 12.docker compose logs prometheus --tail=50
 13. docker compose logs grafana --tail=50
 
-
+zuycie zasobw
+14.docker stats --no-stream
