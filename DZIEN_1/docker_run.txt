@@ -4,3 +4,6 @@
 
 3. export LICENSE_FILE_PATH=/home/ubuntu/license.xml
 4. docker compose ps
+5. less docker-compose.yaml
+
+
