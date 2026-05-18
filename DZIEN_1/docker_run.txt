@@ -1,3 +1,6 @@
 
-cd ~/TollCollectDemo/dev-edition-app/target/dev-edition-app-1.0-SNAPSHOT/dev-edition-app
-sudo LICENSE_FILE_PATH=/home/xraytunnel/license.xml docker compose up -d
+1. cd ~/TollCollectDemo/dev-edition-app/target/dev-edition-app-1.0-SNAPSHOT/dev-edition-app
+2. sudo LICENSE_FILE_PATH=/home/xraytunnel/license.xml docker compose up -d
+
+3. export LICENSE_FILE_PATH=/home/ubuntu/license.xml
+4. docker compose ps
