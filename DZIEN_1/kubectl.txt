@@ -82,6 +82,7 @@ sprawdzenie wszystkch pods
 kubectl get pods --all-namespaces
 kubectl get nodes
 
+kubectl get pods -A | grep -i volt
 
 
 
