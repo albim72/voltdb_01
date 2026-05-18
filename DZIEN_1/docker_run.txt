@@ -13,6 +13,4 @@
 
 pokazanie logw VoltDB
 9. docker compose logs voltdb --tail=80
-
-
-
+10.. docker compose logs -f voltdb -> logi na zywo
