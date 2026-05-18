@@ -78,6 +78,10 @@ kubectl config set-context --current --namespace=voltdb-lab
 sprawdzenie
 kubectl config view --minify | grep namespace
 
+sprawdzenie wszystkch pods 
+kubectl get pods --all-namespaces
+
+
 
 
 
