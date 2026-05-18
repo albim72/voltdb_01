@@ -54,7 +54,7 @@ kubectl run voltdb \
   --image=voltactivedata/volt-developer-edition:14.1.0_voltdb \
   --port=21212 \
   -n volt-training \
-  -- voltdb start --ignore=thp --dir=/var/voltdb
+  -- sh -c "voltdb init --dir=/var/voltdb && voltdb start --dir=/var/voltdb --ignore=thp"
 
 
 kubectl logs voltdb -n volt-training -f
