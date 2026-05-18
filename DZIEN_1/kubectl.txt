@@ -88,7 +88,7 @@ test klastra
 kubectl create deployment test-nginx --image=nginx
 
 kubectl get pods
-
+kubectl delete deployment test-nginx
 
 
 
