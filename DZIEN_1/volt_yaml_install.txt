@@ -48,4 +48,38 @@ helm install volt voltdb/voltdb \
 licencja:
 -f values.yaml
 --set-file cluster.config.licenseXMLFile=$HOME/license.xml
+
+
+____________________________________
+
+cat > values.yaml << 'EOF'
+global:
+  voltdbVersion: "13.2.0"
+
+image:
+  repository: voltdb/voltdb-community
+  tag: "13.2.0"
+  pullPolicy: IfNotPresent
+
+operator:
+  image:
+    repository: voltdb/voltdb-operator
+    tag: "13.2.0"
+    pullPolicy: IfNotPresent
+
+cluster:
+  clusterSpec:
+    replicas: 1
+
+  config:
+    deployment:
+      cluster:
+        kfactor: 0
+        sitesperhost: 8
+    licenseXMLFile: /etc/voltdb/license.xml
+
+serviceSpec:
+  clientPort: 22222
+  adminPort: 33333
+EOF
     
