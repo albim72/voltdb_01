@@ -102,4 +102,5 @@ helm uninstall volt -n volt-training --no-hooks
 kubectl delete all --all -n volt-training
 kubectl delete namespace volt-training
 kubectl create namespace volt-training
-    
+
+helm show values voltdb/voltdb | grep -A10 image
