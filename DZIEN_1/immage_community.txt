@@ -58,3 +58,20 @@ kubectl run voltdb \
 
 
 kubectl logs voltdb -n volt-training -f
+
+
+_______________________________________________________________________________
+
+kubectl delete pod voltdb -n volt-training
+
+kubectl create configmap voltdb-license \
+  --from-file=license.xml=$HOME/license.xml \
+  -n volt-training
+
+kubectl run voltdb \
+  --image=voltactivedata/volt-developer-edition:14.1.0_voltdb \
+  --port=21212 \
+  -n volt-training \
+  --overrides='{"spec":{"volumes":[{"name":"license","configMap":{"name":"voltdb-license"}}],"containers":[{"name":"voltdb","image":"voltactivedata/volt-developer-edition:14.1.0_voltdb","command":["sh","-c","voltdb init --dir=/var/voltdb --license=/etc/voltdb/license.xml && voltdb start --dir=/var/voltdb --ignore=thp"],"ports":[{"containerPort":21212}],"volumeMounts":[{"name":"license","mountPath":"/etc/voltdb"}]}]}}'
+
+kubectl logs voltdb -n volt-training -f
