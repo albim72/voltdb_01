@@ -104,3 +104,39 @@ kubectl delete namespace volt-training
 kubectl create namespace volt-training
 
 helm show values voltdb/voltdb | grep -A10 image
+
+_______________________________________________________________
+
+cat > values.yaml << 'EOF'
+global:
+  voltdbVersion: "13.2.0"
+  image:
+    registry: "docker.io"
+    pullPolicy: IfNotPresent
+
+image:
+  registry: docker.io
+  repository: voltdb/voltdb-operator
+  tag: "13.2.0"
+  pullPolicy: IfNotPresent
+
+cluster:
+  clusterSpec:
+    replicas: 1
+  config:
+    deployment:
+      cluster:
+        kfactor: 0
+        sitesperhost: 8
+
+serviceSpec:
+  clientPort: 22222
+  adminPort: 33333
+EOF
+
+
+helm install volt voltdb/voltdb \
+  -n volt-training \
+  --server-side=false \
+  -f values.yaml \
+  --set-file cluster.config.licenseXMLFile=$HOME/license.xml
