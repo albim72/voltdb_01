@@ -10,3 +10,33 @@ kubectl run voltdb \
   --image=voltactivedata/volt-developer-edition:14.1.0_voltdb \
   --port=21212 \
   -n volt-training
+
+
+________________________________________
+
+cat > values.yaml << 'EOF'
+global:
+  voltdbVersion: "14.1.0"
+  image:
+    registry: "docker.io"
+    pullPolicy: IfNotPresent
+
+image:
+  registry: docker.io
+  repository: voltactivedata/volt-developer-edition
+  tag: "14.1.0_voltdb"
+  pullPolicy: IfNotPresent
+
+cluster:
+  clusterSpec:
+    replicas: 1
+  config:
+    deployment:
+      cluster:
+        kfactor: 0
+        sitesperhost: 8
+
+serviceSpec:
+  clientPort: 22222
+  adminPort: 33333
+EOF
