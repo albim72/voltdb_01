@@ -96,4 +96,10 @@ helm install volt voltdb/voltdb \
   --server-side=false \
   -f values.yaml \
   --set-file cluster.config.licenseXMLFile=$HOME/license.xml
+
+
+helm uninstall volt -n volt-training --no-hooks
+kubectl delete all --all -n volt-training
+kubectl delete namespace volt-training
+kubectl create namespace volt-training
     
