@@ -40,3 +40,7 @@ serviceSpec:
   clientPort: 22222
   adminPort: 33333
 EOF
+
+
+kubectl get pod voltdb -n volt-training
+kubectl logs voltdb -n volt-training
