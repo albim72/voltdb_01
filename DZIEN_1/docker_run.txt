@@ -8,7 +8,9 @@
 6. s -la /home/ubuntu/license.xml
 -rw-rw-r-- 1 ubuntu ubuntu 816 Apr 29 07:32 /home/ubuntu/license.xml
 
-7. ocker compose config --services
+7. docker compose config --services
+8. docker compose up -d
+9. 
 
 
 
