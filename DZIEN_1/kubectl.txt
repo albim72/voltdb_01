@@ -91,5 +91,51 @@ kubectl get pods
 kubectl delete deployment test-nginx
 
 
+instlacja Helm
+
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+helm version
+
+dodanie repozytorium 
+helm repo add voltdb https://voltdb-kubernetes-charts.storage.googleapis.com
+helm repo update
+
+helm search repo voltdb
+
+helm install mydb voltdb/voltdb \
+  --set global.voltdbVersion=<WERSJA_VOLTDDB> \
+  --set-file cluster.config.licenseXMLFile=license.xml
+
+
+ A -> plik licencji VoltDB
+
+Wtedy robisz:
+
+mkdir -p ~/voltdb-k8s
+cd ~/voltdb-k8s
+
+Wrzucasz tam plik:
+
+license.xml
+
+Potem:
+
+helm search repo voltdb
+
+I instalujesz klaster:
+
+helm install mydb voltdb/voltdb \
+  --set global.voltdbVersion=<WERSJA> \
+  --set-file cluster.config.licenseXMLFile=license.xml
+
+
+kubectl get pods
+kubectl get services
+helm list
+powinieneś zobaczyć pody VoltDB.
+
+
+
 
 
