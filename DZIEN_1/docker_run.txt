@@ -25,4 +25,18 @@ zuycie zasobw
 14.docker stats --no-stream
 
 analiza portw i adresw
-15. ss -tulpn | grep LISTEN
+15. ss -tulpn | grep LISTED
+
+
+VMC
+
+tworenie tabeli :
+
+CREATE TABLE TRAINING_EVENTS (
+     VEHICLE_ID INTEGER NOT NULL,
+     EVENT_ID INTEGER NOT NULL,
+     GATE_ID INTEGER NOT NULL,
+     AMOUNT DECIMAL NOT NULL,
+     EVENT_TS BIGINT NOT NULL,
+     PRIMARY KEY (VEHICLE_ID, EVENT_ID)
+);
