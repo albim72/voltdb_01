@@ -11,3 +11,56 @@ sudo apt update
 sudo apt install -y curl ca-certificates
 
 curl --version
+
+
+
+Zrób teraz instalację Minikube.
+
+Zainstaluj curl, jeśli go nie ma
+sudo apt update
+sudo apt install -y curl
+
+Pobierz i zainstaluj Minikube
+
+Dla Ubuntu/Linux x86-64:
+
+curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+rm minikube-linux-amd64
+
+To jest oficjalna metoda instalacji Minikube dla Linux x86-64.
+
+Sprawdź instalację -> 
+minikube version
+which minikube
+
+Powinieneś zobaczyć coś w rodzaju:
+
+/usr/local/bin/minikube
+Uruchom klaster na Dockerze -> 
+minikube start --driver=docker
+
+Docker driver jest oficjalnie wspierany na Linuxie i pozwala uruchomić Kubernetes wewnątrz istniejącego Dockera.
+
+klaster działa?
+
+kubectl config get-contexts
+kubectl get nodes
+kubectl cluster-info
+
+Poprawny wynik dla kubectl get nodes powinien wyglądać mniej więcej tak:
+
+NAME       STATUS   ROLES           AGE   VERSION
+minikube   Ready    control-plane   ...   ...
+Jeśli pojawi się błąd permission denied przy Dockerze
+
+Wtedy wpisz:
+
+sudo usermod -aG docker $USER
+newgrp docker
+docker ps
+
+I ponownie:
+
+minikube start --driver=docker
+
