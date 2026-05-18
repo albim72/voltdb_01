@@ -1,3 +1,12 @@
 docker pull voltdb/voltdb-community:13.2.0
 
 docker images | grep voltdb
+
+______________________________________
+
+minikube image load voltactivedata/volt-developer-edition:14.1.0_voltdb
+
+kubectl run voltdb \
+  --image=voltactivedata/volt-developer-edition:14.1.0_voltdb \
+  --port=21212 \
+  -n volt-training
