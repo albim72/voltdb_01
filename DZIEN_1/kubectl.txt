@@ -72,6 +72,10 @@ kubectl get namespaces
 UTWORZENIE NAMESPACE SZKOLENIOWEGO
 kubectl create namespace voltdb-lab
 
+ustawienie przestrzeni domyslmnej
+kubectl config set-context --current --namespace=voltdb-lab
+
+
 
 
 
