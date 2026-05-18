@@ -1,0 +1,51 @@
+1. Utwórz katalog roboczy
+mkdir -p ~/voltdb-k8s
+cd ~/voltdb-k8s
+
+2. Utwórz plik values.yaml
+nano values.yaml
+
+Wklej:
+
+global:
+  voltdbVersion: "13.2.0"
+
+cluster:
+  clusterSpec:
+    replicas: 1
+
+  config:
+    deployment:
+      cluster:
+        kfactor: 0
+        sitesperhost: 8
+
+  serviceSpec:
+    clientPort: 22222
+    adminPort: 33333
+
+Zapisz:
+CTRL + O, Enter, CTRL + X.
+
+
+
+3. Sprawdź plik
+cat values.yaml
+4. Upewnij się, że licencja jest w home
+ls -la $HOME/license.xml
+5. Stwórz namespace
+kubectl create namespace volt-training 2>/dev/null || true
+6. Instalacja z YAML
+
+Dla Helm
+
+helm install volt voltdb/voltdb \
+  -n volt-training \
+  --server-side=false \
+  -f values.yaml \
+  --set-file cluster.config.licenseXMLFile=$HOME/license.xml
+
+licencja:
+-f values.yaml
+--set-file cluster.config.licenseXMLFile=$HOME/license.xml
+    
