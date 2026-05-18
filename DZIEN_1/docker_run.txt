@@ -16,3 +16,9 @@ pokazanie logw VoltDB
 10.. docker compose logs -f voltdb -> logi na zywo
 11. docker compose logs vmc --tail=80 -> logi VMC - pandel administracyjny
 
+logi dla promstheus i grafana
+
+12.docker compose logs prometheus --tail=50
+13. docker compose logs grafana --tail=50
+
+
