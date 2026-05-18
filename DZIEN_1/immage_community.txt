@@ -1,0 +1,1 @@
+docker pull voltdb/voltdb-community:13.2.0
