@@ -80,6 +80,7 @@ kubectl config view --minify | grep namespace
 
 sprawdzenie wszystkch pods 
 kubectl get pods --all-namespaces
+kubectl get nodes
 
 
 
