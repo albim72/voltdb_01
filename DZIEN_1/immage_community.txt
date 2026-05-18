@@ -1,1 +1,3 @@
 docker pull voltdb/voltdb-community:13.2.0
+
+docker images | grep voltdb
