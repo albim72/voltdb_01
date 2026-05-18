@@ -140,3 +140,18 @@ helm install volt voltdb/voltdb \
   --server-side=false \
   -f values.yaml \
   --set-file cluster.config.licenseXMLFile=$HOME/license.xml
+
+
+bashdocker pull voltdb/voltdb-operator:13.2.0
+docker pull voltdb/voltdb-enterprise:13.2.0
+
+Jeśli wymaga logowania:
+bashdocker login
+
+A potem utwórz secret w K8s:
+
+bashkubectl create secret docker-registry dockerhub-secret \
+  --docker-username=TWÓJ_LOGIN \
+  --docker-password=TWOJE_HASŁO \
+  --docker-email=TWÓJ_EMAIL \
+  -n volt-training
