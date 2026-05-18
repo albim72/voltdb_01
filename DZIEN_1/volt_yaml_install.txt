@@ -89,4 +89,11 @@ helm install volt voltdb/voltdb \
   --server-side=false \
   -f values.yaml \
   --set-file cluster.config.licenseXMLFile=$HOME/license.xml
+
+helm uninstall volt -n volt-training
+helm install volt voltdb/voltdb \
+  -n volt-training \
+  --server-side=false \
+  -f values.yaml \
+  --set-file cluster.config.licenseXMLFile=$HOME/license.xml
     
