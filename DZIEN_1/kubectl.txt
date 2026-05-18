@@ -8,3 +8,6 @@ kubectl version --client
 update UBUNTU
 
 sudo apt update
+sudo apt install -y curl ca-certificates
+
+curl --version
